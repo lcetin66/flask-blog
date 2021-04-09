@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">YB BLOG</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/about">Hakkimizda</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/articles">Makaleler</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+
+            
+            {% if session["logged_in"] %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/dashboard">Kontrol Paneli</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/logout">Cikis Yapin</a>
+                </li>
+            {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">Giris Yapin</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/register">Kayit Olun</a>
+                </li>
+                <li >
+                    <!--
+                    <form action='/search' method='post'>
+                        <input type='text' name='keyword' class='input-sm' maxlength='64' placeholder='Ara...' />
+                        <button type='submit' class='btn btn-danger'>Ara</button>
+                    </form>
+                -->
+                <form class="form-inline mt-2 mt-md-0" action='/search' method='post'>
+                    <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Aranacak kelime..." aria-label="Search">
+                    <button class="btn btn-danger" type="submit">Ara</button>
+                </form>
+                </li>
+
+            {% endif %}
+            
+        </ul>
+       
+ 
+</nav>
